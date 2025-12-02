@@ -5,7 +5,7 @@
 
 # Игнорировать файл .env
 .env
-
+.DS_Store
 # Игнорировать файлы
 first_run.txt
 promo_codes.txt
