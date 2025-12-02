@@ -1,6 +1,9 @@
-# AgentX Bot
+# FomoFightersBot
 
-[🇷🇺 Russian](README-RU.md) | [🇬🇧 English](README.md)
+<div align="center">
+  <a href="README.md">🇬🇧 English</a>
+  <a href="README_RU.md">🇷🇺 Русский</a>
+</div>
 
 [<img src="https://res.cloudinary.com/dkgz59pmw/image/upload/v1736756459/knpk224-28px-channel_psjoqn.svg" alt="Channel Link" width="200">](https://t.me/+vpXdTJ_S3mo0ZjIy)
 [<img src="https://res.cloudinary.com/dkgz59pmw/image/upload/v1736756459/knpk224-28px-chat_ixoikd.svg" alt="Chat Link" width="200">](https://t.me/+wWQuct9bljQ0ZDA6)
@@ -8,27 +11,33 @@
 ---
 
 ## 📑 Table of Contents
-1. [Description](#description)
-2. [Key Features](#key-features)
-3. [Installation](#installation)
-   - [Quick Start](#quick-start)
-   - [Manual Installation](#manual-installation)
-4. [Settings](#settings)
-5. [Support and Donations](#support-and-donations)
-6. [Contact](#contact)
+1. [Description](#-description)
+2. [Key Features](#-key-features)
+3. [Installation](#-installation)
+4. [Settings](#-settings)
+5. [Support and Donations](#-support-and-donations)
+6. [Contact](#-contact)
 
 ---
 
 ## 📜 Description
-**Agent X Bot** is an automated bot for the [Agent X](https://t.me/agntxbot/node?startapp=252453226) game. Supports multithreading, proxy integration, and automatic game management.
+
+**FomoFightersBot** is an automated bot designed for the Telegram game **Fomo Fighters**. It helps automate various in-game actions to streamline your progress.
+
+> **⚠️ Important Note:** This project is currently in the early stages of development. The primary functionality is focused on the complete automation of the new player tutorial. Logic for long-term account management and advanced gameplay is not yet implemented.
 
 ---
 
 ## 🌟 Key Features
-- 🔄 **Multithreading** — ability to work with multiple accounts in parallel
-- 🔐 **Proxy Support** — secure operation through proxy servers
-- 🎯 **Quest Management** — automatic quest completion
-- 📊 **Statistics** — detailed session statistics tracking
+
+- **👨‍👩‍👧‍👦 Multi-Account Support:** Run the bot for multiple Telegram accounts simultaneously.
+- **🌐 Proxy Integration:** Enhance security and avoid network restrictions by routing traffic through proxies.
+- **🤖 Full Tutorial Automation:** Automatically completes the entire new player tutorial, including:
+  - Building construction
+  - Troop training
+  - Attacking objectives
+  - Claiming quest rewards
+- **🔄 Automatic Updates:** The bot can check for updates and install them automatically to ensure you are always running the latest version.
 
 ---
 
@@ -37,8 +46,8 @@
 ### Quick Start
 1. **Download the project:**
    ```bash
-   git clone https://github.com/mainiken/agentx.git
-   cd agentx
+   git clone https://github.com/your-username/FomoFightersBot.git
+   cd FomoFightersBot
    ```
 
 2. **Install dependencies:**
@@ -46,53 +55,48 @@
    pip install -r requirements.txt
    ```
 
-3. **Configure parameters in the `.env` file:**
-   ```bash
-   API_ID=your_api_id
-   API_HASH=your_api_hash
-   ```
+3. **Configure the bot:**
+   - Rename `.env-example` to `.env`.
+   - Edit the `.env` file to add your `API_ID` and `API_HASH`.
+   - Place your session files in the `sessions` directory.
+   - If using proxies, add them to `bot/config/proxies-template.txt` and rename it to `proxies.txt`.
 
-### Manual Installation
-1. **Linux:**
-   ```bash
-   sudo sh install.sh
-   python3 -m venv venv
-   source venv/bin/activate
-   pip3 install -r requirements.txt
-   cp .env-example .env
-   nano .env  # Enter your API_ID and API_HASH
-   python3 main.py
-   ```
-
-2. **Windows:**
-   ```bash
-   python -m venv venv
-   venv\Scripts\activate
-   pip install -r requirements.txt
-   copy .env-example .env
-   python main.py
-   ```
+4. **Run the bot:**
+   - **Linux/macOS:** `sh run.sh`
+   - **Windows:** `run.bat`
 
 ---
 
 ## ⚙️ Settings
 
-| Parameter                  | Default Value         | Description                                                 |
-|---------------------------|----------------------|-------------------------------------------------------------|
-| **API_ID**                |                      | Telegram API application ID                                 |
-| **API_HASH**              |                      | Telegram API application hash                               |
-| **GLOBAL_CONFIG_PATH**    |                      | Path for configuration files. By default, uses the TG_FARM environment variable |
-| **FIX_CERT**              | False                | Fix SSL certificate errors                                  |
-| **SESSION_START_DELAY**   | 360                  | Delay before starting the session (seconds)                 |
-| **REF_ID**                |                      | Referral ID for new accounts                                |
-| **USE_PROXY**             | True                 | Use proxy                                                   |
-| **SESSIONS_PER_PROXY**    | 1                    | Number of sessions per proxy                                |
-| **DISABLE_PROXY_REPLACE** | False                | Disable proxy replacement on errors                         |
-| **BLACKLISTED_SESSIONS**  | ""                   | Sessions that will not be used (comma-separated)            |
-| **DEBUG_LOGGING**         | False                | Enable detailed logging                                     |
-| **DEVICE_PARAMS**         | False                | Use custom device parameters                                |
-| **AUTO_UPDATE**           | True                 | Automatic updates                                           |
-| **CHECK_UPDATE_INTERVAL** | 300                  | Update check interval (seconds)                             |
+Configure the bot by editing the `.env` file.
+
+| Parameter | Description |
+|---|---|
+| `API_ID` | **Required.** Your Telegram application API ID. |
+| `API_HASH` | **Required.** Your Telegram application API Hash. |
+| `SESSION_START_DELAY` | Delay in seconds before starting each session. Default: `360`. |
+| `REF_ID` | Referral ID for new accounts. |
+| `USE_PROXY` | Whether to use proxies for Telegram connections. Default: `True`. |
+| `SESSIONS_PER_PROXY`| Number of sessions to run per proxy address. Default: `1`. |
+| `DISABLE_PROXY_REPLACE` | If `True`, prevents the bot from replacing a faulty proxy. Default: `False`. |
+| `BLACKLISTED_SESSIONS`| A comma-separated list of session names to exclude from running. |
+| `DEBUG_LOGGING` | If `True`, enables detailed debug-level logging. Default: `False`. |
+| `AUTO_UPDATE` | If `True`, enables automatic updates. Default: `True`. |
+| `CHECK_UPDATE_INTERVAL`| Interval in seconds to check for updates. Default: `300`. |
+
+---
+
+## ⚠️ Disclaimer
+
+This software is provided "as is" without any warranty. By using this bot, you accept full responsibility for its use and any consequences that may arise.
+
+The author is not responsible for:
+- Any direct or indirect damages related to the use of the bot.
+- Possible violations of the game's or Telegram's terms of service.
+- Account blocking or other access restrictions.
+
+Use this bot at your own risk.
 
 ---
 
@@ -114,15 +118,3 @@ Support the development:
 
 If you have questions or suggestions:
 - **Telegram**: [Join our channel](https://t.me/+vpXdTJ_S3mo0ZjIy)
-
----
-## ⚠️ Disclaimer
-
-This software is provided "as is" without any warranties. By using this bot, you accept full responsibility for its use and any consequences that may arise.
-
-The author is not responsible for:
-- Any direct or indirect damages related to the use of the bot
-- Possible violations of third-party service terms of use
-- Account blocking or access restrictions
-
-Use the bot at your own risk and in compliance with applicable laws and third-party service terms of use.
